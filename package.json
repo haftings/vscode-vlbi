@@ -19,7 +19,7 @@
                 "id": "vlbi_corr",
                 "aliases": ["VLBI Correlation Report", "vlbi_corr"],
                 "extensions": [".corr"],
-                "configuration": "./vlbi_corr.language-configuration.json"
+                "configuration": "./blank.language-configuration.json"
             },
             {
                 "id": "vlbi_master_schedule",
@@ -31,20 +31,20 @@
                     "master[0-9][0-9]-*.txt"
                 ],
                 "firstLine": "^## Master file format version .*",
-                "configuration": "./vlbi_master_schedule.language-configuration.json"
+                "configuration": "./blank.language-configuration.json"
             },
             {
                 "id": "vlbi_nscodes",
                 "aliases": ["VLBI Stations (ns-codes.txt)", "vlbi_nscodes"],
                 "filenamePatterns": ["ns-codes.txt"],
                 "firstLine": "^\\* ns-codes\\.txt.*",
-                "configuration": "./vlbi_nscodes.language-configuration.json"
+                "configuration": "./blank.language-configuration.json"
             },
             {
                 "id": "vlbi_stations",
                 "aliases": ["VLBI Stations (m.stations or stations.m)", "vlbi_stations"],
                 "filenamePatterns": ["m.stations", "stations.m"],
-                "configuration": "./vlbi_stations.language-configuration.json"
+                "configuration": "./blank.language-configuration.json"
             }
         ],
         "grammars": [
