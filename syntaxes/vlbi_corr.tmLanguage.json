@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Correlation Report",
+	"patterns": [
+		{"include": "#magic"},
+		{"include": "#FRINGING_CONFIG_FILE"},
+		{"include": "#text-section"},
+		{"include": "#section"}
+	],
+	"repository": {
+		"magic": {
+			"patterns": [{
+				"name": "comment.line.magic",
+				"match": "^%CORRELATOR_REPORT_FORMAT [0-9]+$"
+			}]
+		},
+		"FRINGING_CONFIG_FILE": {
+			"begin": "^\\+FRINGING_CONFIG_FILE$",
+			"beginCaptures": {
+				"0": {"name": "markup.heading"}
+			},
+			"end": "^(?=\\+)",
+			"patterns": [{"include": "source.hops_cf"}]
+		},
+		"text-section": {
+			"begin": "^\\+.*(TEXT|FILE)$",
+			"beginCaptures": {
+				"0": {"name": "markup.heading"}
+			},
+			"end": "^(?=\\+)"
+		},
+		"section": {
+			"begin": "^\\+[A-Z_]+$",
+			"beginCaptures": {
+				"0": {"name": "markup.heading"}
+			},
+			"end": "^(?=\\+)",
+			"patterns": [
+				{"include": "#table"},
+				{"include": "#key-value"},
+				{"include": "#comment"},
+				{"include": "#numbers"}
+			]
+		},
+		"table": {
+			"begin": "^--+$",
+			"beginCaptures": {
+				"0": {"name": "keyword.control.table-line"}
+			},
+			"end": "^(?= *\\*)",
+			"patterns": [
+				{"include": "#numbers"}
+			]
+		},
+		"key-value": {
+			"match": "^([A-Z0-9_-][A-Za-z0-9_-]+)(?: +(.*))?",
+			"captures": {
+				"1": {"name": "entity.other.attribute-name"},
+				"2": {"patterns": [{"include": "numbers"}]}
+			}
+		},
+		"comment": {
+			"match": "^ *\\*.*",
+			"name": "comment.line"
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "\\b\\d{4}-\\d{3}-\\d{4}(\\d\\d)?\\b",
+					"name": "constant.numeric.datetime"
+				},
+				{
+					"match": "(?<=^|[ \t])[+-]?(\\d+\\.?\\d*|\\.\\d+)([eE][+-]?\\d+)?(?=[ \t*]|$)",
+					"name": "constant.numeric"
+				}
+			]
+		}
+	},
+	"scopeName": "source.vlbi_corr"
+}
