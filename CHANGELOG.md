@@ -5,3 +5,4 @@ All notable changes to the "vlbi-file-types" extension will be documented in thi
 ## [Unreleased]
 
 - Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
+- VLBI Master Schedule file

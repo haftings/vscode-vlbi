@@ -5,6 +5,7 @@ This VSCode extension provides file type support for several Very Long Baseline 
 ## File Types (Languages) Supported
 
 * Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
+* VLBI Master Schedule file
 
 ## Installation
 

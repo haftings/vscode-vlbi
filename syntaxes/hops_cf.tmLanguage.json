@@ -49,14 +49,16 @@
 			}]
 		},
 		"strings": {
-			"patterns": [{
-				"name": "string.unquoted",
-				"match": "[%a-zA-Z0-9_+-]+"
-			},
-			{
-				"name": "string.regexp",
-				"match": "\\?"
-			}]
+			"patterns": [
+				{
+					"name": "string.unquoted",
+					"match": "[%a-zA-Z0-9_+-]+"
+				},
+				{
+					"name": "string.regexp",
+					"match": "\\?"
+				}
+			]
 		}
 	},
 	"scopeName": "source.hops_cf"

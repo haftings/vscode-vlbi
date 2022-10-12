@@ -1,0 +1,59 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Master Schedule",
+	"patterns": [
+		{"include": "#magic"},
+		{"include": "#frame"},
+		{"include": "#heading"},
+		{"include": "#numbers"},
+		{"include": "#strings"},
+		{"include": "#invalid"}
+	],
+	"repository": {
+		"magic": {
+			"patterns": [{
+				"name": "comment.line.number-sign.magic",
+				"match": "^[ \t]*#[^\n]*"
+			}]
+		},
+		"frame": {
+			"patterns": [{
+				"name": "keyword.operator",
+				"match": "\\||--+"
+			}]
+		},
+		"heading": {
+			"patterns": [{
+				"name": "markup.heading",
+				"match": "^[ \t]*[^|].*"
+			}]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.date",
+					"match": "\\b(\\d\\d)?(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\\d\\d\\b"
+				},
+				{
+					"name": "constant.numeric.number",
+					"match": "(?<=\\|)[ \t]*(\\d+\\.?\\d*|\\.\\d+|\\d\\d:\\d\\d(:\\d\\d)?)[ \t]*(?=\\|)"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.unquoted",
+					"match": "(?<=\\|)[ \t]*(([^ \t|]{2})*[ \t]*(-([^ \t|]{2})*)?|[^ \t|]+)[ \t]*(?=\\|)"
+				}
+			]
+		},
+		"invalid": {
+			"patterns": [{
+				"name": "invalid.illegal",
+				"match": "[^ \t]+"
+			}]
+		}
+	},
+	"scopeName": "source.vlbi_master_schedule"
+}

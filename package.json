@@ -14,6 +14,18 @@
                 "aliases": ["HOPS CF", "hops_cf"],
                 "filenamePatterns": ["cf", "*[._-]cf", "cf[._-]*"],
                 "configuration": "./hops_cf.language-configuration.json"
+            },
+            {
+                "id": "vlbi_master_schedule",
+                "aliases": ["VLBI Master Schedule", "vlbi_master_schedule"],
+                "filenamePatterns": [
+                    "master[0-9][0-9][0-9][0-9].txt",
+                    "master[0-9][0-9][0-9][0-9]-*.txt",
+                    "master[0-9][0-9].txt",
+                    "master[0-9][0-9]-*.txt"
+                ],
+                "firstLine": "^## Master file format version .*",
+                "configuration": "./vlbi_master_schedule.language-configuration.json"
             }
         ],
         "grammars": [
@@ -21,7 +33,13 @@
                 "language": "hops_cf",
                 "scopeName": "source.hops_cf",
                 "path": "./syntaxes/hops_cf.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_master_schedule",
+                "scopeName": "source.vlbi_master_schedule",
+                "path": "./syntaxes/vlbi_master_schedule.tmLanguage.json"
             }
+
         ]
     }
 }
