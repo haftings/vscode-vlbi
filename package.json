@@ -1,0 +1,27 @@
+{
+    "name": "vlbi-file-types",
+    "displayName": "VLBI File Types",
+    "description": "Language support for several VLBI file types",
+    "version": "0.0.1",
+    "engines": {"vscode": "^1.72.0"},
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "hops_cf",
+                "aliases": ["HOPS CF", "hops_cf"],
+                "filenamePatterns": ["cf", "*[._-]cf", "cf[._-]*"],
+                "configuration": "./hops_cf.language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "hops_cf",
+                "scopeName": "source.hops_cf",
+                "path": "./syntaxes/hops_cf.tmLanguage.json"
+            }
+        ]
+    }
+}

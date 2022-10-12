@@ -1,0 +1,63 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "HOPS CF",
+	"patterns": [
+		{"include": "#comment"},
+		{"include": "#operators"},
+		{"include": "#control"},
+		{"include": "#selector"},
+		{"include": "#keywords"},
+		{"include": "#numbers"},
+		{"include": "#strings"}
+	],
+	"repository": {
+		"comment": {
+			"name": "comment",
+			"patterns": [{
+				"name": "comment.line.star.hops_cf",
+				"match": "\\*[^\n]*"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator.hops_cf",
+				"match": "[<>]|\\b(and|or|not|to)\\b"
+			}]
+		},
+		"control": {
+			"patterns": [{
+				"name": "keyword.control.hops_cf",
+				"match": "\\b(if|else)\\b"
+			}]
+		},
+		"selector": {
+			"patterns": [{
+				"name": "variable.language.hops_cf",
+				"match": "\\b(station|baseline|source|f_group|scan)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "entity.other.attribute-name",
+				"match": "\\b([yx]_(slip_sync|crc)|weak_channel|use_samples|t_cohere|switched|stop|station_delay|start|skip|(sb|mb|dr)_win|samplers|sampler_delay_[yxrl]|ref_freq|(ra|lsb|dec)_offset|plot_data_dir|period|pc_(tonemask|phase(s_[yxrl]|s|_offset_[yxrl])|period|mode|freqs|delay_[yxrl]|amp_hcode)|passband|optimize_closure|notches|min_weight|mbd_anchor|max_parity|ionosphere|ion_(win|smooth|npts)|interpolator|index|gen_cf_record|gates|freqs|fmatch_bw_pct|est_pc_manual|delay_offs(_[yxrl]|)|dc_block|chan_ids|adhoc_(tref|poly|phase|period|flag_file|file_chans|file|amp))\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "(?<=^|[ \t])[+-]?(\\d+\\.?\\d*|\\.?\\d+)([Ee][+-]?\\d+)?(?=[ \t*]|$)"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.unquoted",
+				"match": "[%a-zA-Z0-9_+-]+"
+			},
+			{
+				"name": "string.regexp",
+				"match": "\\?"
+			}]
+		}
+	},
+	"scopeName": "source.hops_cf"
+}
