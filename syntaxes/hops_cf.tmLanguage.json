@@ -3,7 +3,6 @@
 	"name": "HOPS CF",
 	"patterns": [
 		{"include": "#comment"},
-		{"include": "#operators"},
 		{"include": "#control"},
 		{"include": "#selector"},
 		{"include": "#keywords"},
@@ -18,16 +17,10 @@
 				"match": "\\*[^\n]*"
 			}]
 		},
-		"operators": {
-			"patterns": [{
-				"name": "keyword.operator.hops_cf",
-				"match": "[<>]|\\b(and|or|not|to)\\b"
-			}]
-		},
 		"control": {
 			"patterns": [{
 				"name": "keyword.control.hops_cf",
-				"match": "\\b(if|else)\\b"
+				"match": "[<>]|\\b(if|else|and|or|not|to)\\b"
 			}]
 		},
 		"selector": {
