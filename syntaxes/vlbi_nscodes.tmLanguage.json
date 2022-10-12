@@ -1,0 +1,44 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Stations (ns-codes.txt)",
+	"patterns": [
+		{"include": "#comments"},
+		{"include": "#data"},
+		{"include": "#invalid"}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.star.magic",
+					"match": "^\\* ns-codes\\.txt\\b.*"
+				},
+				{
+					"name": "comment.line.star",
+					"match": "^\\*.*"
+				}
+			]
+		},
+		"data": {
+			"match": "^[ \t]*(?:([0-9A-Z_][0-9a-z_])|([^ \t\n]+))[ \t]+(?:([A-Z][A-Z0-9_-]{2,7}|-+)|([^ \t\n]+))[ \t]+(?:(\\d{5}[^ \t\n]\\d{3}|-+)|([^ \t\n]+))[ \t]+(?:(\\d+|-+)|(.*))(?:[ \t]+(.*))?[ \t]*(\\*|$)",
+			"captures": {
+				"1": {"name": "keyword.control.id"},
+				"2": {"name": "invalid.illegal.id"},
+				"3": {"name": "entity.other.attribute-name.name"},
+				"4": {"name": "invalid.illegal.name"},
+				"5": {"name": "string.unquoted.domes"},
+				"6": {"name": "invalid.illegal.domes"},
+				"7": {"name": "constant.numeric.cdp"},
+				"8": {"name": "invalid.illegal.cdp"},
+				"9": {"name": "comment.line"}
+			}
+		},
+		"invalid": {
+			"patterns": [{
+				"name": "invalid.illegal",
+				"match": "[^ \t\n]+"
+			}]
+		}
+	},
+	"scopeName": "source.vlbi_nscodes"
+}

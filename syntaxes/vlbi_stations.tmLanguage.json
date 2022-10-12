@@ -1,0 +1,34 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Stations (m.stations or stations.m)",
+	"patterns": [
+		{"include": "#stations"},
+		{"include": "#placeholder"},
+		{"include": "#invalid"}
+	],
+	"repository": {
+		"stations": {
+			"match": "^[ \t]*(?:([a-zA-Z0-9])[ \t]+([0-9A-Z_][0-9a-z_])|([0-9A-Z_][0-9a-z_])[ \t]+([a-zA-Z0-9]))[ \t]*$",
+			"captures": {
+				"1": {"name": "entity.other.attribute-name.name"},
+				"2": {"name": "keyword.control.id"},
+				"3": {"name": "keyword.control.id"},
+				"4": {"name": "entity.other.attribute-name.name"}
+			}
+		},
+		"placeholder": {
+			"match": "^[ \t]*([a-zA-Z0-9])[ \t]+([Xx]x)$",
+			"captures": {
+				"1": {"name": "entity.other.attribute-name.name"},
+				"2": {"name": "comment.line.placeholder"}
+			}
+		},
+		"invalid": {
+			"patterns": [{
+				"name": "invalid.illegal",
+				"match": "[^ \t\n]+"
+			}]
+		}
+	},
+	"scopeName": "source.vlbi_stations"
+}

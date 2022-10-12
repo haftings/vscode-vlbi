@@ -26,6 +26,19 @@
                 ],
                 "firstLine": "^## Master file format version .*",
                 "configuration": "./vlbi_master_schedule.language-configuration.json"
+            },
+            {
+                "id": "vlbi_nscodes",
+                "aliases": ["VLBI Stations (ns-codes.txt)", "vlbi_nscodes"],
+                "filenamePatterns": ["ns-codes.txt"],
+                "firstLine": "^\\* ns-codes\\.txt.*",
+                "configuration": "./vlbi_nscodes.language-configuration.json"
+            },
+            {
+                "id": "vlbi_stations",
+                "aliases": ["VLBI Stations (m.stations or stations.m)", "vlbi_stations"],
+                "filenamePatterns": ["m.stations", "stations.m"],
+                "configuration": "./vlbi_stations.language-configuration.json"
             }
         ],
         "grammars": [
@@ -38,8 +51,17 @@
                 "language": "vlbi_master_schedule",
                 "scopeName": "source.vlbi_master_schedule",
                 "path": "./syntaxes/vlbi_master_schedule.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_nscodes",
+                "scopeName": "source.vlbi_nscodes",
+                "path": "./syntaxes/vlbi_nscodes.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_stations",
+                "scopeName": "source.vlbi_stations",
+                "path": "./syntaxes/vlbi_stations.tmLanguage.json"
             }
-
         ]
     }
 }

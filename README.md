@@ -6,6 +6,7 @@ This VSCode extension provides file type support for several Very Long Baseline 
 
 * Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
 * VLBI Master Schedule file
+* VLBI Stations files (`ns-codes.txt`, `m.stations`, and `stations.m`)
 
 ## Installation
 
