@@ -44,14 +44,14 @@
 			"patterns": [
 				{
 					"name": "string.unquoted",
-					"match": "(?<=\\|)[ \t]*(([^ \t|]{2})*[ \t]*(-([^ \t|]{2})*)?|[^ \t|]+)[ \t]*(?=\\|)"
+					"match": "(?<=\\|)[ \t]*(([^ \t\n|]{2})*[ \t]*(-([^ \t\n|]{2})*)?|[^ \t\n|]+)[ \t]*(?=\\|)"
 				}
 			]
 		},
 		"invalid": {
 			"patterns": [{
 				"name": "invalid.illegal",
-				"match": "[^ \t]+"
+				"match": "[^ \t\n]+"
 			}]
 		}
 	},
