@@ -1,0 +1,43 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DiFX V2D",
+	"patterns": [
+		{"include": "#comment-block"},
+		{"include": "#comment-line"},
+		{"include": "#dates"},
+		{"include": "#number-likes"},
+		{"include": "#control"},
+		{"include": "#parameter"}
+	],
+	"repository": {
+		"number-likes": {
+			"name": "constant.numeric",
+			"match": "(?:^|(?<=\\s|[,={}]))(?:[+-]?\\b(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?|\\b(?:f(?:alse)?|F(?:alse|ALSE)?|t(?:rue)?|T(?:rue|RUE)?))(?:$|(?=\\s|[,={}]))"
+		},
+		"dates": {
+			"name": "constant.numeric",
+			"match": "(?:^|(?<=\\s|[,={}]))(?:\\d{4}y\\d+d(?:\\d+h(?:\\d+m(?:\\d+s)?)?)?|\\d{4}-\\d\\d-\\d\\d(?:T\\d\\d:\\d\\d(?::\\d\\d)?)?|\\d{4}(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\\d\\d(?:-\\d\\d:\\d\\d(?::\\d\\d)?)?)(?:$|(?=\\s|[,={}]))"
+		},
+		"comment-line": {
+			"name": "comment.line.number-sign",
+			"match": "#.*"
+		},
+		"comment-block": {
+			"name": "comment.block",
+			"begin": "\\bCOMMENT\\s*\\{",
+			"end": "\\}"
+		},
+		"control": {
+			"name": "keyword.control",
+			"match": "\\b(SOURCE|ANTENNA|DATASTREAM|SETUP|EOP|RULE|ZOOM)\\b|[,{}]"
+		},
+		"parameter": {
+			"match": "\\b(zoom|Z|yPole|Y|xPole|xmacLength|X|windowSize|vsn|visBufferLength|vex|ut1_utc|UDP_MTU|tweakIntTime|toneSelection|toneGuard|tInt|threadsFile|tcalFreq|tai_utc|subintNS|strideLength|startSeries|specRes|specAvg|source|sortAntennas|singleSetup|singleScan|simFXCORR|setup|sendSize|sendLength|scan|sampling|ra|postFFringe|polSwap|polConvert|phasedArray|phaseCalInt|padScans|overSamp|outputBandwidth|numBufferedFFTs|nThread|networkPort|nDataSegments|nCore|nChan|nBand|name|naifFile|mode|mjdStop|mjdStart|min(?:Subarray|ReadSize|Length)|max(?:Size|ReadSize|NSBetweenUVShifts|NSBetweenACAvg|Length|Gap)|machines?|loOffsets|jobSeries|invalidMask|guardNS|fringeRotOrder|freqId|freqClockOffs|format|filelist|file|FFTSpecRes|fake|exhaustiveAutocorrs|ephemObject|ephemFile|doPolar|doPointingCentre|deltaClock(?:Rate)?|delayModel|dec|datastreams|dataBufferFactor|clock(?:Rate|Offset|Epoch)|calCode|break|binConfig|baselines|antennas|addZoomFreq|addPhaseCentre|addOutputBand)\\b\\s*(=)\\s*",
+			"captures": {
+			    "1": {"name": "entity.other.attribute-name"},
+				"2": {"name": "keyword.control"}
+			}
+		}
+	},
+	"scopeName": "source.difx_v2d"
+}

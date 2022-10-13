@@ -3,6 +3,7 @@
 	"name": "VLBI Correlation Report",
 	"patterns": [
 		{"include": "#magic"},
+		{"include": "#CORRELATION_CONFIG_FILE"},
 		{"include": "#FRINGING_CONFIG_FILE"},
 		{"include": "#text-section"},
 		{"include": "#section"}
@@ -14,10 +15,18 @@
 				"match": "^%CORRELATOR_REPORT_FORMAT [0-9]+$"
 			}]
 		},
+		"CORRELATION_CONFIG_FILE": {
+			"begin": "^\\+CORRELATION_CONFIG_FILE$",
+			"beginCaptures": {
+				"0": {"name": "markup.heading", "patterns": [{"name": "markup.underline", "match": ".+"}]}
+			},
+			"end": "^(?=\\+)",
+			"patterns": [{"include": "source.difx_v2d"}]
+		},
 		"FRINGING_CONFIG_FILE": {
 			"begin": "^\\+FRINGING_CONFIG_FILE$",
 			"beginCaptures": {
-				"0": {"name": "markup.heading"}
+				"0": {"name": "markup.heading", "patterns": [{"name": "markup.underline", "match": ".+"}]}
 			},
 			"end": "^(?=\\+)",
 			"patterns": [{"include": "source.hops_cf"}]
@@ -25,14 +34,14 @@
 		"text-section": {
 			"begin": "^\\+.*(TEXT|FILE)$",
 			"beginCaptures": {
-				"0": {"name": "markup.heading"}
+				"0": {"name": "markup.heading", "patterns": [{"name": "markup.underline", "match": ".+"}]}
 			},
 			"end": "^(?=\\+)"
 		},
 		"section": {
 			"begin": "^\\+[A-Z_]+$",
 			"beginCaptures": {
-				"0": {"name": "markup.heading"}
+				"0": {"name": "markup.heading", "patterns": [{"name": "markup.underline", "match": ".+"}]}
 			},
 			"end": "^(?=\\+)",
 			"patterns": [

@@ -10,6 +10,12 @@
     "contributes": {
         "languages": [
             {
+                "id": "difx_v2d",
+                "aliases": ["DiFX V2D", "difx_v2d"],
+                "extensions": [".v2d"],
+                "configuration": "./difx_v2d.language-configuration.json"
+            },
+            {
                 "id": "hops_cf",
                 "aliases": ["HOPS CF", "hops_cf"],
                 "filenamePatterns": ["cf", "*[._-]cf", "cf[._-]*"],
@@ -48,6 +54,11 @@
             }
         ],
         "grammars": [
+            {
+                "language": "difx_v2d",
+                "scopeName": "source.difx_v2d",
+                "path": "./syntaxes/difx_v2d.tmLanguage.json"
+            },
             {
                 "language": "hops_cf",
                 "scopeName": "source.hops_cf",
