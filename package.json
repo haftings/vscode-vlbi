@@ -59,6 +59,12 @@
                 "configuration": "./blank.language-configuration.json"
             },
             {
+                "id": "vlbi_sked",
+                "aliases": ["VLBI SKED", "vlbi_sked"],
+                "extensions": [".skd"],
+                "configuration": "./blank.language-configuration.json"
+            },
+            {
                 "id": "vlbi_stations",
                 "aliases": ["VLBI Stations (m.stations or stations.m)", "vlbi_stations"],
                 "filenamePatterns": ["m.stations", "stations.m"],
@@ -95,6 +101,11 @@
                 "language": "vlbi_nscodes",
                 "scopeName": "source.vlbi_nscodes",
                 "path": "./syntaxes/vlbi_nscodes.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_sked",
+                "scopeName": "source.vlbi_sked",
+                "path": "./syntaxes/vlbi_sked.tmLanguage.json"
             },
             {
                 "language": "vlbi_stations",

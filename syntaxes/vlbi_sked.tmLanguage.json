@@ -1,0 +1,29 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Master Schedule",
+	"patterns": [
+		{"include": "#heading"},
+		{"include": "#keywords"},
+		{"include": "#prefixes"},
+		{"include": "#numbers"}
+	],
+	"repository": {
+		"heading": {
+			"name": "keyword.control",
+			"match": "^\\$[A-Z_-]+"
+		},
+		"keywords": {
+			"name": "entity.other.attribute-name",
+			"match": "(?:^|(?<=\\s))(?:WIDTH|VSCAN|VERBOSE|TRACKS|TimeWindow|TimeVar|TAPETM|TAPE_MOTION|TAPE_ALLOCATION|Subnet|StatWt|StatIdle|StatEvn|START|SrcWt|SrcEvn|SplitTwins|SOURCE|SOFTWARE_VERSION|SNRWts|SNR|SkyCov|SETUP|SCHEDUL(?:ING_SOFTWARE|ER|E_CREATE_DATE)|SCAN|RX|REC|PRFLAG|PREOB|POSTOB|POSITION|PARITY|Num(?:SubNet|RiseSet|Obs|LoEl)|MODULAR|MODSCAN|MODES|Min(?:SunDist|SubNetSize|Between|Angle)|MINSLEW|MINSCAN|MIDTP|MIDOB|MaxSlewTime|MaxAngle|MAXSCAN|MASK|MARK6_OFF|LowDec|LOOKAHEAD|LOIF|KEEP_LOG|IDLE|HDPOS|FREQUENCY|FREQ|FLUX|Fill(?:MinTime|MinSub|In|Best)|FILL_OFF|EQUIP|EndScan|END|ELEVATION|EARLY|DURATION|DESCRIPTION|DEBUG|Covar|CORSYNCH|CORRELATOR|CONFIRM|CONF_EQUIP|CALIBRATION|Best|BegScan|Astro|ANTENNA|AllBlGood|Add_ps)(?:$|(?=\\s))"
+		},
+		"prefixes": {
+			"name": "entity.other.attribute-name",
+			"match": "^\\s*[A-Z](?:$|(?=\\s))"
+		},
+		"numbers": {
+			"name": "constant.numeric",
+			"match": "(?:^|(?<=\\s))[+-]?(\\d+\\.?\\d*|\\.\\d+)([eE][+-]?\\d+)?(?:$|(?=\\s))"
+		}
+	},
+	"scopeName": "source.vlbi_sked"
+}
