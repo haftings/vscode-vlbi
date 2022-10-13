@@ -1,12 +1,18 @@
 {
     "name": "vlbi-file-types",
     "displayName": "VLBI File Types",
-    "description": "Language support for several VLBI file types",
+    "description": "Language support for several Very Long Baseline Interferometry (VLBI) file types",
     "version": "0.0.1",
     "engines": {"vscode": "^1.72.0"},
-    "categories": [
-        "Programming Languages"
-    ],
+    "categories": ["Programming Languages"],
+    "icon": "images/icon.png",
+    "galleryBanner": {"color": "#000000", "theme": "dark"},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/haftings/vscode-vlbi.git"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "homepage": "https://github.com/haftings/vscode-vlbi",
     "contributes": {
         "languages": [
             {
