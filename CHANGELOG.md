@@ -4,6 +4,7 @@ All notable changes to the "vlbi-file-types" extension will be documented in thi
 
 ## [Unreleased]
 
+- DiFX `input`, `calc`, and `im` configuration files
 - DiFX VEX to DiFX (V2D) configuration file
 - Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
 - VLBI Correlator Report

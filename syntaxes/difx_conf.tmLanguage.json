@@ -1,0 +1,62 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DiFX Config",
+	"patterns": [
+		{"include": "#comment"},
+		{"include": "#pair"}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign",
+					"match": "#.*"
+				},
+				{
+					"name": "comment.block",
+					"match": "@\\s*\\*.*?\\*\\s*@"
+				}
+			]
+		},
+		"pair": {
+			"match": "(.*?):(.*)",
+			"captures": {
+			    "1": {
+					"name": "entity.other.attribute-name",
+					"patterns": [
+						{"include": "#index"},
+						{"include": "#units"}
+					]
+				},
+				"2": {
+					"patterns": [
+						{"include": "#number"},
+						{"include": "#constant"},
+						{"include": "#word"}
+					]
+				}
+			}
+		},
+		"units": {
+			"name": "markup.italic",
+			"match": "\\([A-Za-z]+\\)"
+		},
+		"index": {
+			"name": "constant.numeric",
+			"match": "\\b\\d+(?:/\\d+)?\\b"
+		},
+		"number": {
+			"name": "constant.numeric",
+			"match": "(?<=\\s|:)[+-]?\\b(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?(?=\\s|$)"
+		},
+		"constant": {
+			"name": "constant.language",
+			"match": "(?<=\\s|:)(?:TRUE|FALSE)(?=\\s|$)"
+		},
+		"word": {
+			"name": "string.unquoted",
+			"match": "\\S+"
+		}
+	},
+	"scopeName": "source.difx_conf"
+}

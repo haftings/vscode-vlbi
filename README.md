@@ -4,6 +4,7 @@ This VSCode extension provides file type support for several Very Long Baseline 
 
 ## File Types (Languages) Supported
 
+* DiFX `input`, `calc`, and `im` configuration files
 * DiFX VEX to DiFX (V2D) configuration file
 * Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
 * VLBI Correlator Report
@@ -47,4 +48,3 @@ Just copy these files into `~/.vscode/extensions` and restart Code.
 * Additional language support
   * NASA SKED session schedule file
   * VLBI Experiment (VEX) session schedule file
-  * DiFX `input` and related files

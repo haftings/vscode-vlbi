@@ -10,6 +10,12 @@
     "contributes": {
         "languages": [
             {
+                "id": "difx_conf",
+                "aliases": ["DiFX Config", "difx_conf"],
+                "extensions": [".calc", ".im", ".input"],
+                "configuration": "./blank.language-configuration.json"
+            },
+            {
                 "id": "difx_v2d",
                 "aliases": ["DiFX V2D", "difx_v2d"],
                 "extensions": [".v2d"],
@@ -54,6 +60,11 @@
             }
         ],
         "grammars": [
+            {
+                "language": "difx_conf",
+                "scopeName": "source.difx_conf",
+                "path": "./syntaxes/difx_conf.tmLanguage.json"
+            },
             {
                 "language": "difx_v2d",
                 "scopeName": "source.difx_v2d",
