@@ -1,4 +1,4 @@
-# VLBI File Types
+# Syntax Highlighting for Common Very Long Baseline Interferometry (VLBI) File Types
 
 This VSCode extension provides file type support for several Very Long Baseline Interferometry (VLBI) file types.
 
@@ -8,6 +8,7 @@ This VSCode extension provides file type support for several Very Long Baseline 
 * Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
 * NASA SKED session schedule file
 * VLBI Correlator Report
+* VLBI Experiment (VEX) session schedule file
 * VLBI Master Schedule file
 * VLBI Stations files (`ns-codes.txt`, `m.stations`, and `stations.m`)
 
@@ -44,9 +45,3 @@ Just copy these files into `~/.vscode/extensions` and restart Code.
     as a DiFX V2D file, even if it is a different correlation config format
 * NASA SKED session schedule file
   * Keywords are far from exhaustive, and there are probably many missing
-
-
-## Planned Features
-
-* Additional language support
-  * VLBI Experiment (VEX) session schedule file

@@ -1,0 +1,65 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI VEX",
+	"patterns": [
+		{"include": "#literal"},
+		{"include": "#specials"},
+		{"include": "#ref"},
+		{"include": "#heading"},
+		{"include": "#control"},
+		{"include": "#number"},
+		{"include": "#link"},
+		{"include": "#parameter"},
+		{"include": "#units"}
+	],
+	"repository": {
+		"literal": {
+			"begin": "(?:^|(?<=;))\\s*start_literal\\s*\\(([^)]*)\\)\\s*;",
+			"end": "^\\s*end_literal\\s*\\(\\1\\)\\s*;",
+			"name": "comment.block.documentation"
+		},
+		"specials": {
+			"match": "([+-]?\\d+d\\d+'(?:\\d+\\.?\\d*|\\.\\d+)\")|(\"(?:[^\"\\\\]+|\\.)*\")|(\\*.*)",
+			"captures": {
+				"1": {"name": "constant.numeric.dec"},
+				"2": {"name": "string.quoted.double"},
+				"3": {"name": "comment.line.star"}
+			}
+		},
+		"ref": {
+			"match": "(?:^|(?<=;))\\s*(ref)\\s+(\\$[^\t;:= ]+)\\s*(=)\\s*([^\t;:=&*$\" ]+)\\s*(?:$|(?=\\s|:|;))",
+			"captures": {
+				"1": {"name": "keyword.control"},
+				"2": {"name": "keyword.control"},
+				"3": {"name": "keyword.control"},
+				"4": {"name": "markup.underline.link"}
+			}
+		},
+		"heading": {
+			"name": "keyword.control",
+			"match": "(?:^|(?<=;))\\s*(\\$[^\":;= ]+)\\s*;",
+			"captures": {"0": {"name": "markup.underline"}}
+		},
+		"control": {
+			"name": "keyword.control",
+			"match": "\\b(def|enddef|scan|endscan|ref)\\b|\\$[^\":;= ]+\\b|[=:;]"
+		},
+		"number": {
+			"name": "constant.numeric",
+			"match": "(?:^|\\s|(?<=:|=))([+-]?\\b(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?|[+-]?\\d+h\\d+m(?:\\d+\\.?\\d*|\\.\\d+)s|\\d{4}y\\d+d(?:\\d+h(?:\\d+m(?:(?:\\d+\\.?\\d*|\\.\\d+)s)?)?)?|True|False)(?:$|(?=\\s|:|;))"
+		},
+		"link": {
+			"name": "markup.underline.link",
+			"match": "(?:^|(?<=\\s|:|=))&[^\t;:=&*$ ]+(?:$|(?=\\s|:|;))"
+		},
+		"parameter": {
+			"name": "entity.other.attribute-name",
+			"match": "(?:^|\\s|(?<=:|=))(?:zen_atmos|[yx]_wobble|window|VSN|VLBA_trnsprt_sys_trk|VLBA_frmtr_sys_trk|VEX_rev|VEX_file_writer|variable_scan_length|ut1-utc|track_frame_format|tle[210]|thread|target_correlator|tape_(?:usage_sync|prepass|motion|length|control|change)|TAI-UTC|switching_cycle|switched_power|sub_lo_(?:sidebands|frequencies)|stream_(?:sample_rate|label|def)|station|state_vector|start|source_type|source_(?:position_ref|position_epoch|name|model)|source|sked_optimize|site_(?:velocity|type|position_ref|position_frame|position_epoch|position|name|ID)|setup_always|semi-major_axis|sefd_model|sefd|scheduling_software|scheduler_name|scheduler_email|sched_program|sample_rate|S2_recording_mode|S2_group_order|S2_data_source|roll_reinit_period|roll_inc_period|roll_def|roll|ref_coord_frame|recording_system_ID|record_(?:transport_(?:type|name)|method|density|control)|receiver_name|ra_rate|ra|procedure_name_prefix|preob_cal|postob_cal|pointing_(?:sector|offset)|PI_name|PI_email|phase_cal_detect|pass_order|parity_check|orbit_epoch|ocean_load_(?:vert|horiz)|occupation_code|nut_(?:ref_epoch|origin|model|interval)|number_drives|num_nut_points|num_eop_points|new_tape_setup|new_source_command|nasmyth|mutual_vis|modular_scan_length|mode|minimum_between_scans|minimize_(?:slew|idle)|min_sun_angle|min_scan_length|midob_cal|merged_datastream|mean_motion|mean_anomaly|maximize_num_obs|max_display_width_col|low_SNR_reject|lookahead|intent|inclination|if_def|IAU_name|horizon_map_(?:el|az)|headstack(?:_pos|_motion|)|fanout_def|fanin_def|extension|exper_(?:num|nominal_(?:stop|start)|name|description)|equip(?:_set|_info|)|eop_(?:ref_epoch|origin|interval)|electronics_rack_(?:type|name|ID)|eccentricity|delta_(?:[yx]_nut|psi|eps)|default_scan_length|dec_rate|dec|datum|datastream|data_transfer|data_modulation|contact_(?:name|email)|connection|confirm|composite_equip|clock_early|channel|chan_def|bsp_object_id|bsp_file_name|BBC_assign|axis_(?:type|offset)|ascending_node|arg_perigee|antenna_(?:name|motion|diam)|A1-TAI)(?:$|(?=\\s|:|;))"
+		},
+		"units": {
+			"name": "keyword.other.unit",
+			"match": "(?:^|(?<=\\s))(?:[pnum]?sec|min|hr|day|yr|[mkMG]?Hz|ks|Ms|[umck]?m|in|ft|m?deg|amin|asec|rad|m?Jy|k?bpi|[kMGTP]?B)(?:/(?:[pnum]?sec|min|hr|day|yr)(?:\\^[23])?)?(?:$|(?=\\s|:|;))"
+		}
+	},
+	"scopeName": "source.vlbi_vex"
+}

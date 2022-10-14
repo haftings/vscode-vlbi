@@ -2,8 +2,8 @@
     "name": "vlbi-file-types",
     "displayName": "VLBI File Types",
     "description": "Language support for several Very Long Baseline Interferometry (VLBI) file types",
-    "version": "0.0.1",
-    "engines": {"vscode": "^1.72.0"},
+    "version": "1.0.0",
+    "engines": {"vscode": "^1.0.0"},
     "categories": ["Programming Languages"],
     "icon": "images/icon.png",
     "galleryBanner": {"color": "#000000", "theme": "dark"},
@@ -69,6 +69,16 @@
                 "aliases": ["VLBI Stations (m.stations or stations.m)", "vlbi_stations"],
                 "filenamePatterns": ["m.stations", "stations.m"],
                 "configuration": "./blank.language-configuration.json"
+            },
+            {
+                "id": "vlbi_vex",
+                "aliases": ["VLBI VEX", "vlbi_vex"],
+                "extensions": [".vex", ".ovex"],
+                "filenamePatterns": [
+                    "*.[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]",
+                    "*.[a-z{][a-z][a-z][a-z][a-z][a-z]"
+                ],
+                "configuration": "./blank.language-configuration.json"
             }
         ],
         "grammars": [
@@ -111,6 +121,11 @@
                 "language": "vlbi_stations",
                 "scopeName": "source.vlbi_stations",
                 "path": "./syntaxes/vlbi_stations.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_vex",
+                "scopeName": "source.vlbi_vex",
+                "path": "./syntaxes/vlbi_vex.tmLanguage.json"
             }
         ]
     }
