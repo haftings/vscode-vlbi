@@ -34,6 +34,12 @@
                 "configuration": "./hops_cf.language-configuration.json"
             },
             {
+                "id": "vlbi_accodes",
+                "aliases": ["VLBI Analysis Centers (ac-codes.txt)", "vlbi_accodes"],
+                "filenamePatterns": ["ac-codes.txt"],
+                "configuration": "./blank.language-configuration.json"
+            },
+            {
                 "id": "vlbi_corr",
                 "aliases": ["VLBI Correlation Report", "vlbi_corr"],
                 "extensions": [".corr"],
@@ -46,7 +52,11 @@
                     "master[0-9][0-9][0-9][0-9].txt",
                     "master[0-9][0-9][0-9][0-9]-*.txt",
                     "master[0-9][0-9].txt",
-                    "master[0-9][0-9]-*.txt"
+                    "master[0-9][0-9]-*.txt",
+                    "mediamaster[0-9][0-9][0-9][0-9].txt",
+                    "mediamaster[0-9][0-9][0-9][0-9]-*.txt",
+                    "mediamaster[0-9][0-9].txt",
+                    "mediamaster[0-9][0-9]-*.txt"
                 ],
                 "firstLine": "^## Master file format version .*",
                 "configuration": "./blank.language-configuration.json"
@@ -96,6 +106,11 @@
                 "language": "hops_cf",
                 "scopeName": "source.hops_cf",
                 "path": "./syntaxes/hops_cf.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_accodes",
+                "scopeName": "source.vlbi_accodes",
+                "path": "./syntaxes/vlbi_accodes.tmLanguage.json"
             },
             {
                 "language": "vlbi_corr",

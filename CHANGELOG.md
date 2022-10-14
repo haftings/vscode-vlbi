@@ -3,6 +3,8 @@
 All notable changes to the "vlbi-file-types" extension will be documented in this file.
 
 ## [Unreleased]
+### Added
+- VLBI Analysis Centers file (`ac-codes.txt`)
 
 ## [1.0.0] - 2022-10-13
 ### Added

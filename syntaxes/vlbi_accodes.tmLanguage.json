@@ -1,0 +1,41 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Analysis Centers (ac-codes.txt)",
+	"patterns": [
+		{"include": "#comments"},
+		{"include": "#data"},
+		{"include": "#invalid"}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.star.magic",
+					"match": "^\\* ns-codes\\.txt\\b.*"
+				},
+				{
+					"name": "comment.line.star",
+					"match": "^\\*.*"
+				}
+			]
+		},
+		"data": {
+			"match": "^[ \t]*([^|]*)(\\|)([^|]*)(\\|)([^|]*)(\\|)([^|]*)",
+			"captures": {
+				"1": {"name": "string.unquoted"},
+                "2": {"name": "keyword.control"},
+				"3": {"name": "keyword.control"},
+                "4": {"name": "keyword.control"},
+				"5": {"name": "entity.other.attribute-name.name"},
+                "6": {"name": "keyword.control"}
+			}
+		},
+		"invalid": {
+			"patterns": [{
+				"name": "invalid.illegal",
+				"match": "[^ \t\n]+"
+			}]
+		}
+	},
+	"scopeName": "source.vlbi_accodes"
+}
