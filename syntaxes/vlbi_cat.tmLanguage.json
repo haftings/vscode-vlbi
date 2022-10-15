@@ -1,0 +1,64 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VLBI Catalog",
+	"patterns": [
+		{"include": "#comment_and_parens"},
+		{"include": "#mainline"},
+		{"include": "#subline"},
+		{"include": "#operator"},
+		{"include": "#number"},
+		{"include": "#null"},
+		{"include": "#string"},
+		{"include": "#invalid"}
+	],
+	"repository": {
+		"comment_and_parens": {
+			"match": "(\\*.*)|(\\()([^()]*)(\\))",
+			"captures": {
+				"1": {"name": "comment.line.star"},
+				"2": {"name": "keyword.operator"},
+				"3": {
+					"patterns": [
+						{"include": "#operator"},
+						{"include": "#number"},
+						{"include": "#null"},
+						{"include": "#string"},
+						{"include": "#invalid"}
+					]
+				},
+				"4": {"name": "keyword.operator"}
+			}
+		},
+		"operator": {
+			"name": "keyword.operator",
+			"match": "[(),]"
+		},
+		"mainline": {
+			"match": "^\\s*([^\\s*,()-][^\\s()*]*)",
+			"captures": {
+				"1": {"name": "keyword.control"}
+			}
+		},
+		"subline": {
+			"name": "entity.other.attribute-name",
+			"match": "^\\s*-"
+		},
+		"number": {
+			"name": "constant.numeric",
+			"match": "(?:^|(?<=[\\s(),]))[+-]?(?:\\d+\\.?\\d*|\\.\\d+)(?:[Ee][+-]?\\d+)?(?:$|(?=[\\s()*,]))"
+		},
+		"null": {
+			"name": "string.regexp.null",
+			"match": "(?:^|(?<=[\\s()]))(?:-+|\\$)(?:$|(?=[\\s()*]))"
+		},
+		"string": {
+			"name": "string.unquoted",
+			"match": "[^\\s()*,]+"
+		},
+		"invalid": {
+			"name": "invalid.illegal",
+			"match": "\\S+"
+		}
+	},
+	"scopeName": "source.vlbi_cat"
+}

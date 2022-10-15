@@ -40,6 +40,12 @@
                 "configuration": "./blank.language-configuration.json"
             },
             {
+                "id": "vlbi_cat",
+                "aliases": ["VLBI Catalog", "vlbi_cat"],
+                "extensions": [".cat", ".cat.geodetic", ".cat.geodetic.good"],
+                "configuration": "./vlbi_cat.language-configuration.json"
+            },
+            {
                 "id": "vlbi_corr",
                 "aliases": ["VLBI Correlation Report", "vlbi_corr"],
                 "extensions": [".corr"],
@@ -111,6 +117,11 @@
                 "language": "vlbi_accodes",
                 "scopeName": "source.vlbi_accodes",
                 "path": "./syntaxes/vlbi_accodes.tmLanguage.json"
+            },
+            {
+                "language": "vlbi_cat",
+                "scopeName": "source.vlbi_cat",
+                "path": "./syntaxes/vlbi_cat.tmLanguage.json"
             },
             {
                 "language": "vlbi_corr",

@@ -8,6 +8,7 @@ This VSCode extension provides file type support for several Very Long Baseline 
 - Haystack Observatory Postprocessing System (HOPS) Configuration File (CF)
 - NASA SKED session schedule file
 - VLBI Analysis Centers file (`ac-codes.txt`)
+- VLBI Catalogs (for SKED and VieSched++)
 - VLBI Correlator Report
 - VLBI Experiment (VEX) session schedule file
 - VLBI Master Schedule file
