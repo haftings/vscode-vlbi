@@ -19,7 +19,7 @@
                 "id": "difx_conf",
                 "aliases": ["DiFX Config", "difx_conf"],
                 "extensions": [".calc", ".im", ".input"],
-                "configuration": "./blank.language-configuration.json"
+                "configuration": "./difx_conf.language-configuration.json"
             },
             {
                 "id": "difx_v2d",
@@ -88,7 +88,7 @@
                     "*.[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]",
                     "*.[a-z{][a-z][a-z][a-z][a-z][a-z]"
                 ],
-                "configuration": "./blank.language-configuration.json"
+                "configuration": "./vlbi_vex.language-configuration.json"
             }
         ],
         "grammars": [

@@ -1,5 +1,10 @@
 {
     "brackets": [["(", ")"]],
     "autoClosingPairs": [["(", ")"]],
-    "surroundingPairs": [["(", ")"]]
+    "surroundingPairs": [["(", ")"]],
+    "comments": {"lineComment": "*"},
+    "onEnterRules": [{
+        "beforeText": "(?:^|\\s)if(\\s|$|[(*]).*",
+        "action": {"indent": "indent"}
+    }]
 }

@@ -1,5 +1,12 @@
 {
     "brackets": [["{", "}"]],
     "autoClosingPairs": [["{", "}"]],
-    "surroundingPairs": [["{", "}"]]
+    "surroundingPairs": [["{", "}"]],
+    "comments": {"lineComment": "#"},
+    "folding": {
+        "markers": {
+            "start": "^.*\\{[^}]*(?:#|$)",
+            "end": "^.*\\}"
+        }
+    }
 }

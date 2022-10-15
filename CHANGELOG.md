@@ -5,6 +5,7 @@ All notable changes to the "vlbi-file-types" extension will be documented in thi
 ## [Unreleased]
 ### Added
 - VLBI Analysis Centers file (`ac-codes.txt`)
+- Folding, indentation, and comments support for CF, V2D, VEX, and DiFX Configs
 
 ## [1.0.0] - 2022-10-13
 ### Added

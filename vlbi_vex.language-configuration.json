@@ -1,0 +1,13 @@
+{
+    "comments": {"lineComment": "*"},
+    "folding": {
+        "markers": {
+            "start": "^\\s*(?:def|scan)\\s.*?;.*$",
+            "end": "^(?:||.*?;)\\s*end(?:def|scan)\\s*;.*$",
+        }
+    },
+    "onEnterRules": [{
+        "beforeText": "^(?:|.*?;)\\s*(?:def|scan)(?:\\s|;).*$",
+        "action": {"indent": "indent"}
+    }]
+}
