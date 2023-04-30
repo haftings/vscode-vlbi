@@ -49,6 +49,7 @@
                 "id": "vlbi_corr",
                 "aliases": ["VLBI Correlation Report", "vlbi_corr"],
                 "extensions": [".corr"],
+                "firstLine": "^[%]CORRELATOR_REPORT_FORMAT .*",
                 "configuration": "./blank.language-configuration.json"
             },
             {
