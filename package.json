@@ -1,4 +1,5 @@
 {
+    "publisher": "haftings",
     "name": "vlbi-file-types",
     "displayName": "VLBI File Types",
     "description": "Language support for several Very Long Baseline Interferometry (VLBI) file types",
